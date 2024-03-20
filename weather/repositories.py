@@ -24,20 +24,23 @@ class WeatherRepository:
 			
 	# CRUD
 	
-	def getById(self):
-		pass
-		
+	def getById(self, id):
+		document = self.getCollection().find_one({"_id": id})
+		return document
+    
 	def getAll(self):
-		document = self.getCollection().find({})
-		
+		documents = self.getCollection().find({})
+		return documents
+    
 	def getByAttribute(self, attribute, value):
-		pass
-		
-	def insert(self, document) -> None:
+		documents = self.getCollection().find({attribute: value})
+		return documents
+    
+	def insert(self, document):
 		self.getCollection().insert_one(document)
-		
-	def delete(self, document) -> None:
-		pass
-		
-	def deleteAll(self) -> None:
-		pass
+
+	def delete(self, id):
+		self.getCollection().delete_one({"_id": id})
+
+	def deleteAll(self):
+		self.getCollection().delete_many({})

@@ -1,4 +1,7 @@
+from typing import Any, Mapping
 from django import forms
+from django.forms.renderers import BaseRenderer
+from django.forms.utils import ErrorList
 
 class WeatherForm(forms.Form):
     temperature = forms.FloatField(label='Temperatura')
@@ -7,3 +10,4 @@ class WeatherForm(forms.Form):
     atmosphericPressure = forms.CharField(label='Pressão Atmosférica', required=False)
     humidity = forms.CharField(label='Umidade', required=False)
     weather = forms.CharField(label='Clima', required=False)
+

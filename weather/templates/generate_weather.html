@@ -1,0 +1,17 @@
+{% extends 'main.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Generate Weather</title>
+  </head>
+  <body>
+    <h1>Generate Weather</h1>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <input type="hidden" name="weather_id" value="{{ weather_id }}" />
+      <button type="submit">Salvar</button>
+    </form>
+  </body>
+</html>
+{% endblock %}
